@@ -1,0 +1,40 @@
+{
+  "name": "ZOOM",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-connect-php": "^1.0.3",
+    "object-fit-images": "^3.2.4",
+    "php-include-html": "^1.3.1",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {
+    "connect-ssi": "^1.1.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-changed": "^3.1.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.1",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "imagemin-svgo": "^7.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files='./*.html, ./*.css, ./*js, ./*php' --tunnel"
+  },
+  "author": "",
+  "license": "ISC",
+  "optionalDependencies": {}
+}
