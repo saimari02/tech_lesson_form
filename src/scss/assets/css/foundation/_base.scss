@@ -1,0 +1,156 @@
+// ====================================
+//  base style
+// ====================================
+html *{
+	max-height: 999999px;/*Chrome bagg*/
+}
+html *,
+*::before,
+*::after{
+	box-sizing: border-box;
+}
+html{
+	font-size: 62.5%;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
+}
+body{
+	color: $color-base;
+	-webkit-text-size-adjust: 100%;
+	font-family: $font-JP;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-break: strict;
+	word-wrap: break-word;
+	background-color: $color-white;
+	@media screen and (max-width: 768px){
+		font-family: $font-JP-SP;
+	}
+}
+html[lang="en"] body{
+	font-family: $font-EN;
+}
+body *{
+	word-wrap: break-word;
+	@media screen and (max-width: 768px){
+		background-color: transparent;
+	}
+}
+div, select, p, li, dt, dd, td, th, select, textarea, input, button{
+	font-size: 1.6rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+main{
+	display: block;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+	outline-color: $color-gray-medium;
+	opacity: 1;
+	transition: color .25s, border .25s, opacity .5s, background .25s; //要件等
+	&:hover{
+		.c-icon--arrow-right::before,
+		.c-icon--external::before,
+		.c-icon--pdf::before{
+			transform: translateX(2px);
+			transition: transform .2s ease-in-out;
+		}
+		.c-icon--arrow-down::before{
+			transform: translateY(2px);
+			transition: transform .2s ease-in-out;
+		}
+		transition: color .25s, border .25s, opacity .5s, background .25s; //要件等
+	}
+}
+img{
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: bottom;
+	border: 0;
+	@media screen and (max-width: 768px){
+	}
+}
+svg{
+	fill: currentColor;
+}
+button, select, input, textarea{
+	font-family: inherit;
+	outline-color: $color-gray-dark;
+}
+button{
+	padding: 0;
+	border: 0;
+	cursor: pointer;
+	border-radius: 0;
+	text-transform: none;
+	transition: color .25s, border .25s, opacity .5s, background .25s; //要件等
+	&:hover{
+		transition: color .25s, border .25s, opacity .5s, background .25s; //要件等
+	}
+}
+select{
+	border: 0;
+	background: transparent;
+	appearance: none;
+	text-transform: none;
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+select::-ms-expand{
+	display: none;
+}
+input{
+	border: 0;
+	vertical-align: baseline;
+}
+input[type="button"],
+input[type="submit"]{
+	-webkit-appearance: none;
+	cursor: pointer;
+	border-radius: 0;
+}
+textarea{
+	border: 0;
+	appearance: none;
+}
+abbr,
+acronym {
+    text-decoration: underline dotted rgba($color-gray-medium,.4);
+    text-underline-position: under;
+}
+::placeholder{
+	font-style: normal;
+	color: rgba($color-gray-medium,.4);//イレギュラーカラー#e7e7e7
+}
+::selection{
+	background-color: $color-brand;
+	color: $color-white;
+}
+::-moz-selection{
+  background-color: $color-brand;
+  color: $color-white;
+}
+// ::-webkit-scrollbar{
+// 	width: 12px;
+// }
+// ::-webkit-scrollbar-track{
+// 	background-color: rgba($color-gray-light, .5);
+// }
+// ::-webkit-scrollbar-thumb{
+// 	border-radius: 10px;
+// 	background-color: rgba($color-gray-medium, 1);
+// }
+
+// ====================================
+//  font face
+// ====================================
+// windows メイリオ問題
+@font-face {
+	font-family: Meiryo;
+	src: local(Meiryo), local(メイリオ);
+}

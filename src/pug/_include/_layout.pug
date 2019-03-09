@@ -1,0 +1,46 @@
+include /_include/_const
+
+block pagedata
+doctype html
+html(lang="ja")
+	head(prefix=`og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ${pagePrefix}: http://ogp.me/ns/${pagePrefix}#`)
+		//- meta & link
+		include /_include/_meta
+		include /_include/_link
+		//- pageCSS
+		block pagecss
+		//- pageJavaScript
+		block pagejs-head
+
+		// [ GTM ]
+		|
+		|
+		<?php include($_SERVER["DOCUMENT_ROOT"]."#{COMMON_INCLUDE}gtm_head.html"); ?>
+		// /[ GTM ]
+	body
+		// [ GTM - noscript ]
+		|
+		|
+		<?php include($_SERVER["DOCUMENT_ROOT"]."#{COMMON_INCLUDE}gtm_body.html"); ?>
+		// /[ GTM - noscript ]
+		.l-wrapper
+			|
+			// [ main-content ]
+			| #{"\n"}
+			block main
+			// / [ main-content ]
+			| #{"\n"}
+		//- pageJavaScript
+		//- JavaScript
+		noscript.
+			<div class="u-text--center">
+			<h1 class="c-lead u-weight--bold u-mt--regular">このページは JavaScript を使用しています。</h1>
+			<p class="c-text">お使いのブラウザーは JavaScript が無効になっているか、JavaScript に対応していません。<br>対応しているブラウザーでアクセスしてください。</p>
+			<p class="c-text">すべての機能を利用するためには、有効に設定していただくか、JavaScript に対応しているブラウザーでアクセスしてください。</p>
+			</div>
+		//- common JavaScript
+		|
+		|
+		script(src=`${COMMON_JS_DIRECTORY}form_validation.js`)
+		|
+		block pagejs-body

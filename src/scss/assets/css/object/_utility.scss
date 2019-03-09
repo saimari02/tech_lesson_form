@@ -1,0 +1,393 @@
+// ====================================
+//  Utility
+// ====================================
+.c-text{
+	margin-top: 24px;
+	@include RemoveLineHeight($position: bottom,  $line-height: 1.8);
+	font-size: 1.6rem;
+	line-height: 1.8;
+	font-weight: normal;
+	&--strong{
+		margin-top: 24px;
+		@include RemoveLineHeight($position: bottom,  $line-height: 1.8);
+		font-size: 2rem;
+		line-height: 1.8;
+		font-weight: normal;
+	}
+}
+// font-weight
+.u-weight--normal{
+	font-weight: 400;
+}
+.u-weight--bold{
+	font-weight: 700;
+}
+
+// font-color
+.u-color--red{
+	color: #c00;
+}
+.u-color--white{
+	color: $color-white;
+}
+
+// text-align
+.u-text--center{
+	text-align: center!important;
+	@media screen and (min-width: 769px){
+		&--lg{
+			text-align: center!important;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			text-align: center!important;
+		}
+	}
+}
+.u-text--left{
+	text-align: left!important;
+	@media screen and (min-width: 769px){
+		&--lg{
+			text-align: left!important;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			text-align: left!important;
+		}
+	}
+}
+.u-text--right{
+	text-align: right!important;
+	@media screen and (min-width: 769px){
+		&--lg{
+			text-align: right!important;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			text-align: right!important;
+		}
+	}
+}
+
+
+// background-color
+.u-bgc--white{
+	background-color: $color-white;
+}
+.u-bgc--gray{
+	background-color: $color-base;
+}
+.u-bgc--light-gray{
+	background-color: $color-gray-light;
+}
+.u-bgc--red{
+	background-color: $color-brand;
+}
+.u-bgp--stripe{
+	@include BackgroundStripe;
+}
+
+// flex
+.u-flex{
+	display: flex;
+	flex-wrap: wrap;
+	@media screen and (min-width: 769px){
+		&--pc{
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sp{
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+.u-flex-juct--between{
+	justify-content: space-between;
+}
+.u-flex-juct--center{
+	justify-content: center;
+}
+.u-flex-align--center{
+	align-items: center;
+}
+.u-flex-order--first{
+	order: -1;
+}
+.u-flex-order--end{
+	order: 1;
+}
+.u-flex-order--initial{
+	order: 0;
+}
+
+// margin
+.u-no-margin{
+	margin: 0!important;
+}
+.u-mt--small{
+	margin-top: 32px!important;
+}
+.u-mt--regular{
+	margin-top: 48px!important;
+}
+.u-mt--middle{
+	margin-top: 64px!important;
+}
+.u-mt--large{
+	margin-top: 128px!important;
+}
+@media screen and (min-width: 769px){
+	.u-no-margin--lg{
+		margin-top: 0!important;
+	}
+}
+@media screen and (max-width: 768px){
+	.u-no-margin--sm{
+		margin-top: 0!important;
+	}
+	.u-mt--small{
+		margin-top: 24px!important;
+	}
+	.u-mt--regular{
+		margin-top: 32px!important;
+	}
+	.u-mt--middle{
+		margin-top: 48px!important;
+	}
+	.u-mt--large{
+		margin-top: 64px!important;
+	}
+}
+.u-mt--8{
+	margin-top: 8px!important;
+}
+.u-mt--16{
+	margin-top: 16px!important;
+}
+.u-mt--24{
+	margin-top: 24px!important;
+}
+.u-mt--32{
+	margin-top: 32px!important;
+}
+.u-mt--40{
+	margin-top: 40px!important;
+}
+.u-mt--48{
+	margin-top: 48px!important;
+}
+.u-mt--56{
+	margin-top: 56px!important;
+}
+.u-mt--64{
+	margin-top: 64px!important;
+}
+.u-mt--72{
+	margin-top: 72px!important;
+}
+.u-mt--80{
+	margin-top: 80px!important;
+}
+.u-mt--92{
+	margin-top: 92px!important;
+}
+.u-mt--128{
+	margin-top: 128px!important;
+}
+.u-mt--192{
+	margin-top: 192px!important;
+}
+.u-mt--16{
+	margin-top: 16px!important;
+}
+
+// line-height remove
+.u-mt-crop--1-5{
+	@include RemoveLineHeight($position: top, $line-height: 1.5 , $important: true);
+}
+.u-mt-crop--1-8{
+	@include RemoveLineHeight($position: top, $line-height: 1.8 , $important: true);
+}
+.u-mb-crop--1-5{
+	@include RemoveLineHeight($position: bottom, $line-height: 1.5 , $important: true);
+}
+.u-mb-crop--1-8{
+	@include RemoveLineHeight($position: bottom, $line-height: 1.8 , $important: true);
+}
+
+// padding
+.u-no-padding{
+	padding: 0!important;
+}
+
+// width
+.u-width--auto{
+	width: auto!important;
+	height: auto!important;
+}
+.u-width--5{
+	width: 5%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 5%;
+		}
+	}
+}
+.u-width--10{
+	width: 10%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 10%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 10%;
+		}
+	}
+}
+.u-width--20{
+	width: 20%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 10%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 20%;
+		}
+	}
+}
+.u-width--30{
+	width: 30%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 30%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 30%;
+		}
+	}
+}
+.u-width--40{
+	width: 40%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 40%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 40%;
+		}
+	}
+}
+.u-width--50{
+	width: 50%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 50%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 50%;
+		}
+	}
+}
+.u-width--60{
+	width: 60%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 60%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 60%;
+		}
+	}
+}
+.u-width--70{
+	width: 70%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 70%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 70%;
+		}
+	}
+}
+.u-width--80{
+	width: 80%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 80%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 80%;
+		}
+	}
+}
+.u-width--90{
+	width: 90%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 90%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 90%;
+		}
+	}
+}
+.u-width--100{
+	width: 100%;
+	@media screen and (min-width: 769px){
+		&--lg{
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		&--sm{
+			width: 100%;
+		}
+	}
+}
+
+
+// device view
+@media screen and (min-width: 769px){
+	.u-hidden-lg {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 768px){
+	.u-hidden-sm {
+		display: none !important;
+	}
+}
+
+// clearfix
+.u-clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+	overflow: hidden;
+}

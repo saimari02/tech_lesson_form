@@ -1,0 +1,122 @@
+extends /_include/_layout
+
+//-　ページ独自の設定[head]
+append pagedata
+	- const pagePrefix = "article"; // Select [website]or[article]
+	- const pageTitle = "COTACT"; // <title>
+	- const pageDescription = "お問い合わせフォームです"; // <description>
+
+//- ページ独自のcss
+append pagecss
+	link(rel="stylesheet", href=`${COMMON_CSS_DIRECTORY}page/contact.min.css`)
+
+//- ページ独自のjs[head内]
+append pagejs-head
+
+//- ページ独自のjs[/body直上]
+append pagejs-body
+
+//- ページのコンテンツ
+block main
+	main.l-main.contact(role="main")
+		.contact__container
+			h1.contact__title #{pageTitle}
+			.contact-state
+				.contact-state__item.contact-state__item--current
+					span.contact-state__number
+						span.contact-state__number-inner 1
+					h2.contact-state__title.contact-state__title--current Input
+				.contact-state__item(aria-hidden="true")
+					span.contact-state__number
+						span.contact-state__number-inner 2
+					p.contact-state__title Confirm
+				.contact-state__item(aria-hidden="true")
+					span.contact-state__number
+						span.contact-state__number-inner 3
+					p.contact-state__title Submitted
+			.contact__lead
+				p.c-text Please fill out the form below and press the Confirm button.
+					br
+					| We will respond to your inquiry as soon as possible, but depending on the nature of the inquiry,
+					br.u-hidden-sm
+					| please understand that this may require some time.
+				p.u-mt--16
+					span.contact__item-const.contact__item-const--mr Required
+					span.c-text Required filed
+		form.contact__form(method="post",action="")
+			.c-container--nomg
+				.contact__inner
+					p.contact__item-area
+						label(for="your-company")
+							span.contact__item-name Company/Institution
+					.contact__field-area
+						input.contact__input#your-company(type="text",name="your_company",autocomplete="organization",aria-required="false",placeholder="xxxxxx Co., Ltd.")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-division")
+							span.contact__item-name Division
+					.contact__field-area
+						input.contact__input#your-position(type="text",name="your_division",autocomplete="organization-title",aria-required="false",placeholder="Sales Dep.")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-position")
+							span.contact__item-name Title
+					.contact__field-area
+						input.contact__input#your-division(type="text",name="your_position",autocomplete="organization-title",aria-required="false",placeholder="General Manager")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-name")
+							span.contact__item-name Name
+						span.contact__item-const Required
+					.contact__field-area
+						input.contact__input#your-name(type="text",name="your_name",autocomplete="name",aria-required="true",required,placeholder="Your name")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-mail-adress")
+							span.contact__item-name E-mail
+						span.contact__item-const Required
+					.contact__field-area
+						input.contact__input#your-mail-adress(type="email",name="your_mail_adress",autocomplete="email",aria-required="true",required,placeholder="yourname@yourdomain.com",title="Note: Please enter a valid email address. [ex. xxx@xxx.com]")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-tel-number")
+							span.contact__item-name Phone Number
+						span.contact__item-const Required
+					.contact__field-area
+						input.contact__input#your-tel-number(type="tel",name="your_tel_number",required,autocomplete="tel",aria-required="true",placeholder="212-000-0000",title="Note: Only enter digits.")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-fax-number")
+							span.contact__item-name FAX Number
+					.contact__field-area
+						input.contact__input#your-fax-number(type="tel",name="your_fax_number",autocomplete="fax",aria-required="false",placeholder="212-000-0000",pattern="/^[0-9]+$/",title="Note: Only enter digits.")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-zip")
+							span.contact__item-name ZIP/Postal Code
+					.contact__field-area
+						input.contact__input#your-zip(type="text",name="your_zip",autocomplete="postal-code",aria-required="false",placeholder="12345-6789",title="Note: Only enter digits.")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-address")
+							span.contact__item-name Address
+					.contact__field-area
+						textarea.contact__textarea.contact__textarea--address#your-address(type="text",name="your_address",autocomplete="street-address",aria-required="false",placeholder="Your address")
+				.contact__inner
+					p.contact__item-area
+						label(for="your-inquiry")
+							span.contact__item-name Your Inquiry
+						span.contact__item-const Required
+					.contact__field-area
+						textarea.contact__textarea.contact__textarea--inquiry#your-inquiry(type="text",name="your_inquiry",aria-required="true",required,autocomplete="off",placeholder="Your Message")
+			.c-container--mg-plus.u-mt--64
+				.contact__check
+					h3.c-heading--lv3.u-text--center
+						span.c-heading--lv3__title Privacy Notice
+					.u-text--center.u-mt--64
+						label.contact__item-check
+							input.contact__input-check(type="checkbox",name="acceptance",value="agree",aria-required="true",required,aria-describedby="contact__hint--check")
+							span.contact__input-inner I agree with the above statement.
+					p.contact__text--note-check#contact__hint--check *If you do not agree with this, you can not submit.
+				.contact__button-area
+					button.contact__button.u-text--center(type="submit",value="Submit",name="") Submit
