@@ -5,93 +5,60 @@
 /* https://css-tricks.com/form-validation-part-2-constraint-validation-api-javascript/
 /*---------------------------------------*/
 
-//Name Validate
-var nameInput = {
-  target : document.getElementById('your-name'),
-  func : function(){
-    if (nameInput.target.validity.valueMissing){
-      nameInput.target.setCustomValidity('Please fill out this field.');
-    } else {
-      nameInput.target.setCustomValidity('');
-    }
-  },
-  init: function(){
-    this.target.addEventListener('input', this.func, false);
-    this.target.addEventListener('invalid', this.func, false);
-    this.target.addEventListener('change',this.func, false);
+class Input {
+  constructor (element) {
+    this.element = element;
   }
-};
-nameInput.init();
+
+  requiredField() {
+    if (this.validity.valueMissing){
+      this.setCustomValidity('Please fill out this field.');
+    } else {
+      this.setCustomValidity('');
+    }
+  }
+
+  requiredCheck() {
+    if (this.validity.valueMissing){
+      this.setCustomValidity('Select the check box.');
+    } else {
+      this.setCustomValidity('');
+    }
+  }
+
+  checkEmail() {
+    if (this.validity.valueMissing){
+      this.setCustomValidity('Please fill out this field.');
+    } else if (this.validity.typeMismatch) {
+      this.setCustomValidity('Please enter a valid email address. [ex. xxx@xxx.com]');
+    } else {
+      this.setCustomValidity('');
+    }
+  }
+
+  addEventListenerMultiType (types, listener, useCapture) {
+    for (var i = 0, types = types.trim().split(/\s+/), len = types.length; i < len; ++i) {
+      this.element.addEventListener(types[i], listener, useCapture);
+    }
+  }
+}
+
+//Name Validate
+const name = new Input(document.getElementById('your-name'));
+name.addEventListenerMultiType('input invalid change', name.requiredField, false);
 
 //Email Validate
-var emailInput = {
-  target : document.getElementById('your-mail-adress'),
-  func : function(){
-    if (emailInput.target.validity.valueMissing){
-      emailInput.target.setCustomValidity('Please fill out this field.');
-    } else if (emailInput.target.validity.typeMismatch) {
-      emailInput.target.setCustomValidity('Please enter a valid email address. [ex. xxx@xxx.com]');
-    } else {
-      emailInput.target.setCustomValidity('');
-    }
-  },
-  init: function(){
-    this.target.addEventListener('input', this.func, false);
-    this.target.addEventListener('invalid', this.func, false);
-    this.target.addEventListener('change',this.func, false);
-  }
-};
-emailInput.init();
+const email = new Input(document.getElementById('your-mail-adress'));
+email.addEventListenerMultiType('input invalid change', email.checkEmail, false);
 
 //Phone Validate
-var phoneInput = {
-  target : document.getElementById('your-tel-number'),
-  func : function(){
-    if (phoneInput.target.validity.valueMissing){
-      phoneInput.target.setCustomValidity('Please fill out this field.');
-    } else {
-      phoneInput.target.setCustomValidity('');
-    }
-  },
-  init: function(){
-    this.target.addEventListener('input', this.func, false);
-    this.target.addEventListener('invalid', this.func, false);
-    this.target.addEventListener('change',this.func, false);
-  }
-};
-phoneInput.init();
+const phone = new Input(document.getElementById('your-tel-number'));
+phone.addEventListenerMultiType('input invalid change', phone.requiredField, false);
 
 //Inquiry Validate
-var inquiryInput = {
-  target : document.getElementById('your-inquiry'),
-  func : function(){
-    if (inquiryInput.target.validity.valueMissing){
-      inquiryInput.target.setCustomValidity('Please fill out this field.');
-    } else {
-      inquiryInput.target.setCustomValidity('');
-    }
-  },
-  init: function(){
-    this.target.addEventListener('input', this.func, false);
-    this.target.addEventListener('invalid', this.func, false);
-    this.target.addEventListener('change',this.func, false);
-  }
-};
-inquiryInput.init();
+const inquiry = new Input(document.getElementById('your-inquiry'));
+inquiry.addEventListenerMultiType('input invalid change', inquiry.requiredField, false);
 
-//Inquiry Validate
-var checkboxInput = {
-  target : document.getElementsByClassName('contact__input-check')[0],
-  func : function(){
-    if (checkboxInput.target.validity.valueMissing){
-      checkboxInput.target.setCustomValidity('Select the check box.');
-    } else {
-      checkboxInput.target.setCustomValidity('');
-    }
-  },
-  init: function(){
-    this.target.addEventListener('invalid', this.func, false);
-    this.target.addEventListener('change',this.func, false);
-  }
-};
-checkboxInput.init();
+//Agreement Validate
+const agreement = new Input(document.getElementsByClassName('contact__input-check')[0]);
+agreement.addEventListenerMultiType('input change', agreement.requiredField, false);
