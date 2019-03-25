@@ -10,7 +10,7 @@ class Input {
     this.element = element;
   }
 
-  requiredField(message) {
+  requiredField() {
     if (this.validity.valueMissing){
       this.setCustomValidity('Please fill out this field.');
     } else {
@@ -18,7 +18,7 @@ class Input {
     }
   }
 
-  requiredCheck(message) {
+  requiredCheck() {
     if (this.validity.valueMissing){
       this.setCustomValidity('Select the check box.');
     } else {
@@ -26,7 +26,7 @@ class Input {
     }
   }
 
-  checkEmail(message) {
+  checkEmail() {
     if (this.validity.valueMissing){
       this.setCustomValidity('Please fill out this field.');
     } else if (this.validity.typeMismatch) {
